@@ -1,6 +1,12 @@
 import User from '../models/on-call/user.model.js';
 
 class UserService {
+    /**
+     * Creates a new user with the provided data.
+     * @param {Object} data - User data to be used for creation.
+     * @returns {Promise<Object>} A Promise that resolves to the created user object.
+     * @throws {Error} If an error occurs during the creation process.
+     */
     async createUser(data) {
         try {
             const user = await User.create(data);
@@ -9,6 +15,12 @@ class UserService {
             throw err;
         }
     }
+     /**
+     * Retrieves a user by their ID.
+     * @param {number} id - The ID of the user to retrieve.
+     * @returns {Promise<Object>} A Promise that resolves to the user object.
+     * @throws {Error} If the user with the specified ID is not found or an error occurs during retrieval.
+     */
 
     async getUserById(id) {
         try {
@@ -22,6 +34,13 @@ class UserService {
         }
     }
 
+    /**
+     * Updates an existing user with the provided data.
+     * @param {number} id - The ID of the user to be updated.
+     * @param {Object} data - Updated user data.
+     * @returns {Promise<Object>} A Promise that resolves to the updated user object.
+     * @throws {Error} If the user with the specified ID is not found or an error occurs during update.
+     */
     async updateUser(id, data) {
         try {
             const user = await User.findByPk(id);
@@ -34,6 +53,12 @@ class UserService {
             throw err;
         }
     }
+    /**
+     * Deletes a user by their ID.
+     * @param {number} id - The ID of the user to be deleted.
+     * @returns {Promise<Object>} A Promise that resolves to the deleted user object.
+     * @throws {Error} If the user with the specified ID is not found or an error occurs during deletion.
+     */
 
     async deleteUser(id) {
         try {
@@ -47,6 +72,11 @@ class UserService {
             throw err;
         }
     }
+    /**
+     * Retrieves a list of all users.
+     * @returns {Promise<Array>} A Promise that resolves to an array of user objects.
+     * @throws {Error} If an error occurs during the retrieval process.
+     */
 
     async listUsers() {
         try {

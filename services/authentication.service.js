@@ -1,6 +1,13 @@
 import User from '../models/on-call/user.model.js';
 
 class AuthenticationService {
+     /**
+     * Attempts to log in a user with the provided username and password.
+     * @param {string} username - The username of the user attempting to log in.
+     * @param {string} password - The password provided by the user for authentication.
+     * @returns {Promise<Object>} A Promise that resolves to a JSON representation of the authenticated user.
+     * @throws {Error} If the user is not found or the password is invalid.
+     */
     async login(username, password) {
         try {
             const user = await User.findOne({
